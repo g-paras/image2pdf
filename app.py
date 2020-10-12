@@ -13,6 +13,8 @@ def file():
 	if request.method == 'POST':
 		try:
 			os.remove('thispdf.pdf')
+		except:
+			pass
 		image = request.files['images']
 		image.save(image.filename)
 		var = Image.open(image).convert("RGB")
