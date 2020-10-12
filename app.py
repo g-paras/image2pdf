@@ -17,7 +17,7 @@ def file():
 			pass
 		image = request.files['images']
 		image.save(image.filename)
-		var = Image.open(image).convert("RGB")
+		var = Image.open(image.filename).convert("RGB")
 		var.save('thispdf.pdf')
 		os.remove(image.filename)
 		return send_file('thispdf.pdf')
