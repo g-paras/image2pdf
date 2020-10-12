@@ -1,4 +1,5 @@
 from flask import Flask, render_template, redirect, url_for, request, send_file
+# from werkzeug.utils import secure_filename
 from PIL import Image
 import os
 
@@ -15,7 +16,7 @@ def file():
 			os.remove('thispdf.pdf')
 		except:
 			pass
-		image = request.files['images']
+		image = request.files.getlist['images']
 		image.save(image.filename)
 		var = Image.open(image.filename).convert("RGB")
 		var.save('thispdf.pdf')
@@ -25,3 +26,9 @@ def file():
 
 if __name__ == '__main__':
 	app.run(debug=True)
+
+	# for file in images:
+	# 		if file and allowed_file(file.filename):
+	# 		filename = secure_filename(file.filename)
+	# 		file_names.append(filename)
+	# 		file.save(filename)
