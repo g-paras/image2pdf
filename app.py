@@ -22,7 +22,7 @@ def file():
         imglist = []
         for image in images:
             image.save(image.filename)
-            var = Image.open(image).convert("RGB")
+            var = Image.open(image.filename).convert("RGB")
             imglist.append(var)
         # image.save(image.filename)
         # var = Image.open(image.filename).convert("RGB")
